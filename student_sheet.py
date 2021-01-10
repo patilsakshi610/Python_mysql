@@ -18,14 +18,19 @@ def create_database():
 
 
 def delete_database():
-    ans=input('\nAre you sure you want to delete this database\nIt will delete your all records stored uptill now\n (y/n)')
-    if (ans=="y") or (ans=="Y") :
-        cursor.execute("drop database marksheet")
-        print("your database is successfully deleted\n")
-    elif ans=="n" or (ans=="N"):
-        print('\nyour database is secure')
-    else:
-        print("Oops !!! something went wrong ")
+    try:
+        if(isEmpty()==True):
+            print("none database created yet")
+        ans=input('\nAre you sure you want to delete this database\nIt will delete your all records stored uptill now\n (y/n)')
+        if (ans=="y") or (ans=="Y") :
+            cursor.execute("drop database marksheet")
+            print("your database is successfully deleted\n")
+        elif ans=="n" or (ans=="N"):
+            print('\nyour database is secure')
+        else:
+            print("Oops !!! something went wrong ")
+    except:
+        print("none database created yet")
 
 
 
